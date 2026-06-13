@@ -25,6 +25,6 @@ export function useLocalStorage<T>(key:string,initialvalue:T):[T,Dispatch<SetSta
         }catch(error){
             console.warn(`Error saving ${key} to local storage: ${error}`);
         }
-    },[key,setStoredValue]);
+    },[key,storedValue]);
     return [storedValue,setStoredValue];
 }
