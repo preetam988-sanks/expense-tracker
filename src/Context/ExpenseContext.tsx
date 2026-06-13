@@ -8,7 +8,7 @@ export interface Expense{
     date:string;
 }
 interface ExpenseContextType{
-    expense:Expense[]
+    expenses:Expense[]
     addExpense:(expense:Omit<Expense,'id'>)=>void;
     deleteExpense:(id:string)=>void;
     updateExpense:(id:string,expense:Partial<Expense>)=>void;
@@ -26,7 +26,7 @@ export function ExpenseProvider({children}:{children:React.ReactNode}){
   const updateExpense=useCallback((id:string,updateData:Partial<Expense>)=>{
         setExpenses((prevExpenses)=>prevExpenses.map((expense)=>expense.id===id?{...expense,...updateData}:expense));
     },[setExpenses]);
-  return <ExpenseContext.Provider value={{Expense:expenses,addExpense,deleteExpense,updateExpense}}>
+  return <ExpenseContext.Provider value={{expenses,addExpense,deleteExpense,updateExpense}}>
       {children}
   </ExpenseContext.Provider>
 }
