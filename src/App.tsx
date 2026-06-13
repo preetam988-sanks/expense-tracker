@@ -14,7 +14,7 @@ const App = () => {
             >dj
             </Button>
             <Button className="text-white-800" onClick={()=>console.log("hello")}
-                    variant="primary"
+                    variant="primary" type="submit" disabled={false}
 
             >dj
             </Button>
@@ -24,7 +24,7 @@ const App = () => {
             >dj
             </Button>
 
-            <TextField />
+            <TextField label="hello" />
             <Select options={[{value:"add",label:"add"}]}>
                 <label>add</label>
                 <option value="add">add</option>
