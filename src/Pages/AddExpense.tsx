@@ -10,8 +10,8 @@ const AddExpense = () => {
     const navigate=useNavigate();
     const{addExpense}=useExpenses();
     const[description,setDescription]=useState("");
-    const[amount,setAmount]=useState('');
-    const[category,setCategory]=useState('');
+    const[amount,setAmount]=useState(0);
+    const[category,setCategory]=useState('Food');
     const[date,setDate]=useState(new Date().toISOString().split('T')[0]);
     const[error,setError]=useState('');
     const amountRef=useRef<HTMLInputElement>(null);
@@ -47,15 +47,22 @@ const AddExpense = () => {
                 }
             </div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-            <section className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-2xl border border-white/20 max-w-lg mx-auto mt-10 w-3xl"
+            <section className="bg-white/10 backdrop-blur-md p-6 rounded-xl shadow-2xl border border-white/20
+            max-w-lg mx-auto mt-10 w-full"
             >
                 <div>
                 <label className="tx-lg font-large text-white "><h1>Amount(₹)</h1></label>
                 <input
                 type="number"
                 ref={amountRef}
-                value={amount}
-                onChange={(e)=>setAmount(e.target.value)}
+                value={Number(amount)<0 ? 0 : amount}
+                onChange={(e)=>{
+                const value=e.target.value;
+                    if(value>=0&&value<100000000000){
+                        setAmount(value);
+                    }
+                }
+                }
                 placeholder="Enter amount"
                 className="border border-gray-300 rounded-md px-3 w-full py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
@@ -74,7 +81,7 @@ const AddExpense = () => {
                       className="text-white"
                       onChange={(e)=>setCategory(e.target.value)}
                       options={[
-                          {value:"Food",label:"Food"},
+                          {value:'Food',label:"Food"},
                           {value:"Transport",label:"Transport"},
                           {value:"Entertainment",label:"Entertainment"},
                           {value:"Shopping",label:"Shopping"},
