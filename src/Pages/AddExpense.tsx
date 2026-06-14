@@ -10,7 +10,7 @@ const AddExpense = () => {
     const navigate=useNavigate();
     const{addExpense}=useExpenses();
     const[description,setDescription]=useState("");
-    const[amount,setAmount]=useState(0);
+    const[amount,setAmount]=useState();
     const[category,setCategory]=useState('Food');
     const[date,setDate]=useState(new Date().toISOString().split('T')[0]);
     const[error,setError]=useState('');
