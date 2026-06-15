@@ -13,7 +13,7 @@ export function useLocalStorage<T>(key:string,initialvalue:T):[T,Dispatch<SetSta
             }
         }
     catch(error){
-            prompt(`Error loading ${key} from local storage: ${error}`);
+            alert(`Error loading ${key} from local storage: ${error}`);
             console.warn(`Error loading ${key} from local storage: ${error}`);
             return initialvalue;
     }

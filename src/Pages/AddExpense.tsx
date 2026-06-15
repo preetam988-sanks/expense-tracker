@@ -58,7 +58,7 @@ const AddExpense = () => {
                 value={Number(amount)<0 ? 0 : amount}
                 onChange={(e)=>{
                 const value=e.target.value;
-                    if(value>=0&&value<100000000000){
+                    if(value>=0&&value<1000000000){
                         setAmount(value);
                     }
                 }
@@ -68,7 +68,9 @@ const AddExpense = () => {
                 />
                 </div>
                 <div className="mt-3 mb-3">
-                <TextField className="white text-white" label="Description" value={description} onChange={(e)=>setDescription(e.target.value)
+                <TextField className="white text-white" label="Description"
+                           value={description}
+                           onChange={(e)=>setDescription(e.target.value)
                 }
                  placeholder="Food, Rent "
                 />
@@ -92,7 +94,8 @@ const AddExpense = () => {
                 <div>
                     <label className="text-sm
                     font-medium text-white mt-3">Date</label>
-                    <input type="date" value={date} onChange={(e)=>setDate(e.target.value)} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500
+                    <input type="date" value={date} onChange={(e)=>setDate(e.target.value)}
+                           className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500
                     w-full mb-2 mt-3"/>
                 </div>
                 <Button type="button" variant='danger' onClick={()=>navigate('/')}>
