@@ -2,7 +2,6 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { ExpenseProvider } from "./Context/ExpenseContext.tsx";
-import {useLocalStorage} from "./Hooks/useLocalStorage.ts";
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider, Routes} from "react-router-dom";
 import {Layout} from "./Layout.tsx";
 import Dashboard from "./Pages/Dashboard.tsx";

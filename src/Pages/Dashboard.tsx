@@ -1,6 +1,5 @@
 import React, {useMemo, useState} from 'react'
 import {Button} from "../Components/UI/Button.tsx";
-import type {Expense} from "../Context/ExpenseContext.tsx";
 import {useExpenses} from "../Context/ExpenseContext.tsx";
 import {Select} from "../Components/UI/Select.tsx";
 import {Link} from "react-router-dom";

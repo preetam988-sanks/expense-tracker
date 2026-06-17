@@ -1,12 +1,14 @@
 import {useLocalStorage} from "../Hooks/useLocalStorage.ts";
 import {createContext, useCallback, useContext} from "react";
-export interface Expense{
-    id:string,
-    description:string,
-    amount:number,
-    category:string,
-    date:string;
-}
+import type {Expense} from "../types.ts";
+// export interface Expense{
+//     id:string,
+//     description:string,
+//     amount:number,
+//     category:string,
+//     date:string;
+// }
+
 interface ExpenseContextType{
     expenses:Expense[]
     addExpense:(expense:Omit<Expense,'id'>)=>void;
@@ -30,6 +32,7 @@ export function ExpenseProvider({children}:{children:React.ReactNode}){
       {children}
   </ExpenseContext.Provider>
 }
+// eslint-disable-next-line react-refresh/only-export-components
 export function useExpenses(){
     const context=useContext(ExpenseContext);
     if(context===undefined){

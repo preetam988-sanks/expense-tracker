@@ -5,6 +5,7 @@ export interface Expense{
     amount:number,
     category:Category,
     date:string
+    description:string
 }
 
 export const Categories:Category[]=["Food","Transport","Entertainment","Shopping","Other"]

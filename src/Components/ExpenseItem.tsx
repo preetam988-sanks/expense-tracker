@@ -1,10 +1,10 @@
-import React from 'react'
-import type {Expense} from "../Context/ExpenseContext.tsx";
+// import React from 'react'
+import type {Expense} from "../types.ts";
 import {Link} from "react-router-dom";
 import {Button} from "./UI/Button.tsx";
 interface ExpenseItemProps {
     expense:Expense
-    onDelete:()=>void;
+    onDelete:(id:string)=>void;
 }
 const ExpenseItem = ({expense,onDelete}:ExpenseItemProps) => {
     return (

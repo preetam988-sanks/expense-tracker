@@ -10,7 +10,7 @@ const AddExpense = () => {
     const navigate=useNavigate();
     const{addExpense}=useExpenses();
     const[description,setDescription]=useState("");
-    const[amount,setAmount]=useState();
+    const[amount,setAmount]=useState()<number>;
     const[category,setCategory]=useState('Food');
     const[date,setDate]=useState(new Date().toISOString().split('T')[0]);
     const[error,setError]=useState('');
@@ -57,11 +57,11 @@ const AddExpense = () => {
                 ref={amountRef}
                 value={Number(amount)<0 ? 0 : amount}
                 onChange={(e)=>{
-                const value=e.target.value;
+                const value:number=Number(e.target.value);
                     if(value>=0&&value<1000000000){
                         setAmount(value);
                     }
-                }
+                 }
                 }
                 placeholder="Enter amount"
                 className="border border-gray-300 rounded-md px-3 w-full py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"

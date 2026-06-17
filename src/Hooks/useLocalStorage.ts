@@ -1,4 +1,4 @@
-import {Dispatch, SetStateAction, useEffect, useState} from "react";
+import {type Dispatch, type SetStateAction, useEffect, useState} from "react";
 
 // export function useLocalStorage<T>(key:string,initialvalue:T):[T,(value:T)=>void]{
 export function useLocalStorage<T>(key:string,initialvalue:T):[T,Dispatch<SetStateAction<T>>]{

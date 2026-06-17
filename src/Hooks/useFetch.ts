@@ -1,7 +1,7 @@
 import {useCallback, useState,useEffect} from "react";
 
 interface FetchResult<T>{
-    data:T;
+    data:T|null;
     loading:boolean;
     error:string|null;
     refetch:()=>void;
@@ -21,15 +21,22 @@ export function useFetch<T>(url:string):FetchResult<T>{
          }
          const result=await response.json();
          setData(result);
-     }catch(err:any){
-         setError(err.message);
+     }catch(err:unknown){
+          if(err instanceof Error){
+              setError(err.message);
+          }else{
+              setError("Unknown error occurred");
+          }
      }finally{
          setLoading(false);
      }
     },[url]);
     useEffect(()=>{
-        fetchData();
+        async function fetchData1(){
+            await fetchData();
+        }
+        fetchData1();
     },[fetchData]);
 
     return {data,loading,error,refetch:fetchData}
-}//can we abort request
+}//can I  abort request
